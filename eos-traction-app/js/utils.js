@@ -48,6 +48,7 @@ export function updateActiveNavLink(path) {
 // --- Local Storage Management ---
 
 const APP_PREFIX = 'eos_traction_app_';
+const APP_KEYS = ['companySettings', 'vision', 'people', 'scorecard', 'issues', 'processes', 'rocks'];
 
 /**
  * Guarda datos en localStorage con un prefijo de la aplicación.
@@ -76,6 +77,18 @@ export function loadData(key) {
         return null;
     }
 }
+
+/**
+ * Borra todos los datos de la aplicación del localStorage.
+ */
+export function clearAllData() {
+    console.log('Borrando todos los datos de la aplicación...');
+    APP_KEYS.forEach(key => {
+        localStorage.removeItem(APP_PREFIX + key);
+    });
+    console.log('Datos borrados.');
+}
+
 
 // --- Helper Functions ---
 
