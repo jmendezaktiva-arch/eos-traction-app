@@ -10,16 +10,15 @@ import { renderComponent, setPageTitle, updateActiveNavLink, loadData } from './
 import { renderDashboard } from './components/dashboard.js';
 import { renderVision } from './components/vision.js';
 import { renderPeople } from './components/people.js';
-import { renderData } from './components/data.js'; // <-- IMPORTACIÓN REAL
-// import { renderIssues } from './components/issues.js';
+import { renderData } from './components/data.js';
+import { renderIssues } from './components/issues.js'; // <-- IMPORTACIÓN REAL
 // import { renderProcess } from './components/process.js';
 // import { renderTraction } from './components/traction.js';
 import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-// const renderData = () => renderComponent('<div class="component-container"><h2 class="component-title">Datos</h2><p>Contenido del componente Datos (Scorecard).</p></div>'); // <-- MOCK ELIMINADO
-const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>');
+// const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>'); // <-- MOCK ELIMINADO
 const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>');
 const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>');
 
@@ -29,8 +28,8 @@ const routes = {
     '#/dashboard': { render: renderDashboard, title: 'Dashboard' },
     '#/vision': { render: renderVision, title: 'Visión' },
     '#/people': { render: renderPeople, title: 'Personas' },
-    '#/data': { render: renderData, title: 'Datos' }, // <-- USA LA FUNCIÓN REAL
-    '#/issues': { render: renderIssues, title: 'Asuntos' },
+    '#/data': { render: renderData, title: 'Datos' },
+    '#/issues': { render: renderIssues, title: 'Asuntos' }, // <-- USA LA FUNCIÓN REAL
     '#/process': { render: renderProcess, title: 'Procesos' },
     '#/traction': { render: renderTraction, title: 'Tracción' },
     '#/settings': { render: renderSettings, title: 'Configuración' },
