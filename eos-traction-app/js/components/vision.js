@@ -88,7 +88,6 @@ function saveVTO() {
             targetMarket: document.getElementById('marketing-target-market').value,
             threeUniques: getListValues('marketing-three-uniques'),
         },
-        // Añadiremos el resto de las secciones aquí
         threeYearPicture: {
             futureDate: document.getElementById('three-year-date').value,
             revenue: document.getElementById('three-year-revenue').value,
@@ -96,9 +95,15 @@ function saveVTO() {
             measurables: document.getElementById('three-year-measurables').value,
             looksLike: getListValues('three-year-looks-like'),
         },
-        oneYearPlan: {},
-        rocks: [],
-        issues: [],
+        oneYearPlan: {
+            futureDate: document.getElementById('one-year-date').value,
+            revenue: document.getElementById('one-year-revenue').value,
+            profit: document.getElementById('one-year-profit').value,
+            measurables: document.getElementById('one-year-measurables').value,
+            goals: getListValues('one-year-goals'),
+        },
+        rocks: getListValues('quarterly-rocks-list'),
+        issues: getListValues('issues-list'),
     };
 
     saveData('vision', { vto: vtoData });
@@ -164,7 +169,16 @@ function renderEditableList(id, items = []) {
  */
 export function renderVision() {
     const visionData = loadData('vision')?.vto || {};
-    const { coreValues, coreFocus = {}, tenYearTarget, marketingStrategy = {}, threeYearPicture = {} } = visionData;
+    const { 
+        coreValues, 
+        coreFocus = {}, 
+        tenYearTarget, 
+        marketingStrategy = {}, 
+        threeYearPicture = {},
+        oneYearPlan = {},
+        rocks,
+        issues
+    } = visionData;
 
     const html = `
         <div class="component-container">
@@ -229,8 +243,35 @@ export function renderVision() {
                         ${renderEditableList('three-year-looks-like', threeYearPicture.looksLike)}
                      </div>
                 </section>
+                
+                <!-- 6. Panorama a 1 Año -->
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">6. Panorama a 1 Año (1-Year Plan)</h3>
+                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                        <input id="one-year-date" type="text" class="form-input" placeholder="Fecha Fin de Año" value="${oneYearPlan.futureDate || ''}">
+                        <input id="one-year-revenue" type="text" class="form-input" placeholder="Ingresos" value="${oneYearPlan.revenue || ''}">
+                        <input id="one-year-profit" type="text" class="form-input" placeholder="Ganancia" value="${oneYearPlan.profit || ''}">
+                        <input id="one-year-measurables" type="text" class="form-input" placeholder="Medibles Clave" value="${oneYearPlan.measurables || ''}">
+                     </div>
+                     <div>
+                        <label class="block text-sm text-gray-500 mb-1">Metas para el año (3-7 viñetas)</label>
+                        ${renderEditableList('one-year-goals', oneYearPlan.goals)}
+                     </div>
+                </section>
 
-                <!-- Resto de secciones (se añadirán en pasos futuros) -->
+                <!-- 7. Rocks Trimestrales -->
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">7. Rocks Trimestrales</h3>
+                    <p class="text-sm text-gray-500 mb-4">Las prioridades más importantes para los próximos 90 días.</p>
+                    ${renderEditableList('quarterly-rocks-list', rocks)}
+                </section>
+
+                <!-- 8. Lista de Asuntos -->
+                <section>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">8. Lista de Asuntos</h3>
+                    <p class="text-sm text-gray-500 mb-4">Todos los obstáculos, problemas e ideas que se deben resolver.</p>
+                    ${renderEditableList('issues-list', issues)}
+                </section>
 
                 <!-- Botón de Guardar -->
                 <div class="mt-8 pt-5 border-t border-gray-200">
