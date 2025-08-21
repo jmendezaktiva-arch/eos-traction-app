@@ -9,8 +9,8 @@ import { renderComponent, setPageTitle, updateActiveNavLink, loadData } from './
 // Importa las funciones de renderizado de cada componente
 import { renderDashboard } from './components/dashboard.js';
 import { renderVision } from './components/vision.js';
-import { renderPeople } from './components/people.js'; // <-- IMPORTACIÓN REAL
-// import { renderData } from './components/data.js';
+import { renderPeople } from './components/people.js';
+import { renderData } from './components/data.js'; // <-- IMPORTACIÓN REAL
 // import { renderIssues } from './components/issues.js';
 // import { renderProcess } from './components/process.js';
 // import { renderTraction } from './components/traction.js';
@@ -18,8 +18,7 @@ import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-// const renderPeople = () => renderComponent('<div class="component-container"><h2 class="component-title">Personas</h2><p>Contenido del componente Personas.</p></div>'); // <-- MOCK ELIMINADO
-const renderData = () => renderComponent('<div class="component-container"><h2 class="component-title">Datos</h2><p>Contenido del componente Datos (Scorecard).</p></div>');
+// const renderData = () => renderComponent('<div class="component-container"><h2 class="component-title">Datos</h2><p>Contenido del componente Datos (Scorecard).</p></div>'); // <-- MOCK ELIMINADO
 const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>');
 const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>');
 const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>');
@@ -29,8 +28,8 @@ const renderTraction = () => renderComponent('<div class="component-container"><
 const routes = {
     '#/dashboard': { render: renderDashboard, title: 'Dashboard' },
     '#/vision': { render: renderVision, title: 'Visión' },
-    '#/people': { render: renderPeople, title: 'Personas' }, // <-- USA LA FUNCIÓN REAL
-    '#/data': { render: renderData, title: 'Datos' },
+    '#/people': { render: renderPeople, title: 'Personas' },
+    '#/data': { render: renderData, title: 'Datos' }, // <-- USA LA FUNCIÓN REAL
     '#/issues': { render: renderIssues, title: 'Asuntos' },
     '#/process': { render: renderProcess, title: 'Procesos' },
     '#/traction': { render: renderTraction, title: 'Tracción' },
