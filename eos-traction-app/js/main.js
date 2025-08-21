@@ -12,14 +12,13 @@ import { renderVision } from './components/vision.js';
 import { renderPeople } from './components/people.js';
 import { renderData } from './components/data.js';
 import { renderIssues } from './components/issues.js';
-import { renderProcess } from './components/process.js'; // <-- IMPORTACIÓN REAL
-// import { renderTraction } from './components/traction.js';
+import { renderProcess } from './components/process.js';
+import { renderTraction } from './components/traction.js'; // <-- IMPORTACIÓN REAL
 import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-// const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>'); // <-- MOCK ELIMINADO
-const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>');
+// const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>'); // <-- MOCK ELIMINADO
 
 
 // --- Router ---
@@ -29,8 +28,8 @@ const routes = {
     '#/people': { render: renderPeople, title: 'Personas' },
     '#/data': { render: renderData, title: 'Datos' },
     '#/issues': { render: renderIssues, title: 'Asuntos' },
-    '#/process': { render: renderProcess, title: 'Procesos' }, // <-- USA LA FUNCIÓN REAL
-    '#/traction': { render: renderTraction, title: 'Tracción' },
+    '#/process': { render: renderProcess, title: 'Procesos' },
+    '#/traction': { render: renderTraction, title: 'Tracción' }, // <-- USA LA FUNCIÓN REAL
     '#/settings': { render: renderSettings, title: 'Configuración' },
 };
 
