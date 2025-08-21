@@ -3,7 +3,7 @@
  * Lógica y UI para el componente de Configuración de la empresa.
  */
 
-import { renderComponent, saveData, loadData } from '../utils.js';
+import { renderComponent, saveData, loadData, clearAllData } from '../utils.js';
 
 /**
  * Añade los event listeners al formulario de configuración.
@@ -12,6 +12,7 @@ function addSettingsEventListeners() {
     const settingsForm = document.getElementById('settings-form');
     const logoInput = document.getElementById('company-logo-input');
     const logoPreview = document.getElementById('logo-preview');
+    const resetButton = document.getElementById('reset-app-btn');
 
     // Previsualizar el logo cuando el usuario selecciona un archivo
     logoInput.addEventListener('change', () => {
@@ -58,6 +59,16 @@ function addSettingsEventListeners() {
             saveAndUpdate();
         }
     });
+
+    // Manejar el reinicio de la aplicación
+    resetButton.addEventListener('click', () => {
+        // Usar un modal de confirmación personalizado en un futuro. Por ahora, un confirm simple.
+        if (confirm('¿Estás seguro de que quieres reiniciar toda la aplicación? Se borrarán todos los datos permanentemente.')) {
+            clearAllData();
+            // Recargar la aplicación para aplicar los cambios
+            window.location.reload();
+        }
+    });
 }
 
 /**
@@ -97,7 +108,7 @@ export function renderSettings() {
                     <!-- Nombre de la Empresa -->
                     <div>
                         <label for="company-name" class="block text-sm font-medium text-gray-700 mb-1">Nombre de la Empresa</label>
-                        <input type="text" id="company-name" class="form-input" value="${currentSettings.name}" required>
+                        <input type="text" id="company-name" class="form-input" value="${currentSettings.name || ''}" required>
                     </div>
 
                     <!-- Logotipo de la Empresa -->
@@ -113,9 +124,12 @@ export function renderSettings() {
                     </div>
                 </div>
 
-                <!-- Botón de Guardar -->
+                <!-- Botones de Acción -->
                 <div class="mt-8 pt-5 border-t border-gray-200">
-                    <div class="flex justify-end">
+                    <div class="flex justify-between items-center">
+                        <button id="reset-app-btn" type="button" class="text-sm font-semibold text-red-600 hover:text-red-800">
+                            Reiniciar Aplicación
+                        </button>
                         <button id="save-settings-btn" type="submit" class="btn-primary">
                             Guardar Cambios
                         </button>
