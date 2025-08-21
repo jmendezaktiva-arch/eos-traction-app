@@ -1,0 +1,60 @@
+/* Custom Styles for EOS Traction App */
+
+/* Estilo para el enlace de navegación activo */
+.nav-link.active {
+    background-color: #f1f5f9; /* gray-100 */
+    color: #0f172a; /* gray-900 */
+    font-weight: 600;
+}
+
+/* Transiciones suaves para una mejor experiencia de usuario */
+.nav-link {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Estilos para los contenedores de los componentes para una apariencia consistente */
+.component-container {
+    background-color: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-md */
+    padding: 2rem;
+}
+
+/* Estilos para los títulos dentro de cada componente */
+.component-title {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: #1f2937; /* gray-800 */
+    border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para botones principales */
+.btn-primary {
+    background-color: #2563eb; /* blue-600 */
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8; /* blue-700 */
+}
+
+/* Estilos para inputs y textareas */
+.form-input {
+    width: 100%;
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 0.75rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #2563eb; /* blue-600 */
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}

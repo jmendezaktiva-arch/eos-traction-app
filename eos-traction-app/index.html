@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOS Traction App</title>
+    
+    <!-- Tailwind CSS for rapid UI development -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons for a clean icon set -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* A simple style to ensure the layout takes full height */
+        html, body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* gray-50 */
+        }
+    </style>
+</head>
+<body class="flex h-full bg-gray-50">
+
+    <!-- Static Sidebar Navigation -->
+    <nav class="w-64 bg-white border-r border-gray-200 flex flex-col">
+        <!-- Sidebar Header -->
+        <div class="flex items-center justify-center h-16 border-b border-gray-200 px-4">
+            <img id="company-logo-nav" src="./assets/logo-placeholder.png" alt="Logotipo de la Empresa" class="h-8 w-auto mr-3">
+            <h1 id="company-name-nav" class="text-lg font-bold text-gray-800 truncate">EOS App</h1>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="flex-grow overflow-y-auto">
+            <ul class="py-4 space-y-1">
+                <li>
+                    <a href="#/dashboard" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="layout-dashboard" class="mr-3 h-5 w-5"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#/vision" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="eye" class="mr-3 h-5 w-5"></i>
+                        Visión
+                    </a>
+                </li>
+                <li>
+                    <a href="#/people" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="users" class="mr-3 h-5 w-5"></i>
+                        Personas
+                    </a>
+                </li>
+                <li>
+                    <a href="#/data" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="bar-chart-3" class="mr-3 h-5 w-5"></i>
+                        Datos
+                    </a>
+                </li>
+                <li>
+                    <a href="#/issues" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="alert-triangle" class="mr-3 h-5 w-5"></i>
+                        Asuntos
+                    </a>
+                </li>
+                <li>
+                    <a href="#/process" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="recycle" class="mr-3 h-5 w-5"></i>
+                        Procesos
+                    </a>
+                </li>
+                <li>
+                    <a href="#/traction" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md mx-2">
+                        <i data-lucide="target" class="mr-3 h-5 w-5"></i>
+                        Tracción
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Sidebar Footer -->
+        <div class="flex-shrink-0 p-4 border-t border-gray-200">
+             <a href="#/settings" class="nav-link flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 rounded-md">
+                <i data-lucide="settings" class="mr-3 h-5 w-5"></i>
+                Configuración
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header for Main Content -->
+        <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6">
+            <h2 id="page-title" class="text-xl font-semibold text-gray-900">Dashboard</h2>
+            <!-- User profile or other header items can go here -->
+            <div></div>
+        </header>
+        
+        <!-- Dynamic Content Container -->
+        <main id="app-container" class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6 md:p-8">
+            <!-- Component views will be loaded here by JavaScript -->
+        </main>
+
+        <!-- Footer with methodology attribution -->
+        <footer class="text-center text-xs text-gray-500 p-4 bg-white border-t">
+            Metodología EOS® (Entrepreneurial Operating System) creada por Gino Wickman. Esta es una herramienta de implementación no oficial.
+        </footer>
+    </div>
+
+    <!-- Main JavaScript files -->
+    <script type="module" src="./js/main.js"></script>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
