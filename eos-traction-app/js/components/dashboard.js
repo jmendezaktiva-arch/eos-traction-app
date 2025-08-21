@@ -7,7 +7,6 @@ import { renderComponent, loadData } from '../utils.js';
 
 /**
  * Calcula el puntaje de completitud para un componente específico.
- * Esta es una lógica de ejemplo. La actualizaremos a medida que construyamos cada componente.
  * @param {string} componentName - El nombre del componente (ej: 'vision', 'people').
  * @returns {number} - Un porcentaje de 0 a 100.
  */
@@ -15,7 +14,6 @@ function calculateComponentScore(componentName) {
     const data = loadData(componentName);
     if (!data) return 0;
 
-    // Lógica de ejemplo (a refinar más adelante)
     switch (componentName) {
         case 'vision':
             // El V/TO tiene 8 secciones. Damos 12.5% por cada una que no esté vacía.
@@ -28,17 +26,50 @@ function calculateComponentScore(componentName) {
                     }
                 });
             }
-            return Math.round(visionScore);
+            return Math.min(100, Math.round(visionScore));
+        
         case 'people':
             // 50% por el Accountability Chart, 50% si hay al menos una persona analizada.
             let peopleScore = 0;
-            if (data.accountabilityChart && data.accountabilityChart.length > 0) peopleScore += 50;
-            if (data.peopleAnalyzer && data.peopleAnalyzer.length > 0) peopleScore += 50;
+            if (data.accountabilityChart && data.accountabilityChart.length > 0 && data.accountabilityChart.some(r => r.role || r.name)) peopleScore += 50;
+            if (data.peopleAnalyzer && data.peopleAnalyzer.length > 0 && data.peopleAnalyzer.some(p => p.name)) peopleScore += 50;
             return peopleScore;
-        // Agregaremos más casos para 'data', 'issues', 'process', 'traction'
+
+        case 'data':
+            // 20% por cada métrica definida en el Scorecard, hasta un máximo de 5 (100%).
+            const scorecard = data; // data is the scorecard array itself
+            if (Array.isArray(scorecard)) {
+                return Math.min(100, scorecard.length * 20);
+            }
+            return 0;
+
+        case 'issues':
+            // Puntuación basada en la proporción de asuntos resueltos.
+            const issues = data; // data is the issues array
+            if (Array.isArray(issues) && issues.length > 0) {
+                const solvedCount = issues.filter(i => i.status === 'solved').length;
+                return Math.round((solvedCount / issues.length) * 100);
+            }
+            return issues.length === 0 ? 100 : 0; // 100% si no hay asuntos.
+
+        case 'processes':
+            // 25% por cada proceso documentado, hasta un máximo de 4 (100%).
+            const processes = data; // data is the processes array
+            if (Array.isArray(processes)) {
+                return Math.min(100, processes.length * 25);
+            }
+            return 0;
+
+        case 'traction':
+            // 25% por cada Rock definida, hasta un máximo de 4 (100%).
+            const rocks = data; // data is the rocks array
+            if (Array.isArray(rocks)) {
+                return Math.min(100, rocks.length * 25);
+            }
+            return 0;
+
         default:
-            // Por ahora, si existen datos, damos un 25% simbólico.
-            return data ? 25 : 0;
+            return 0;
     }
 }
 
