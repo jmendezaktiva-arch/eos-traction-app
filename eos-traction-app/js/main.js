@@ -8,8 +8,8 @@ import { renderComponent, setPageTitle, updateActiveNavLink, loadData } from './
 
 // Importa las funciones de renderizado de cada componente
 import { renderDashboard } from './components/dashboard.js';
-import { renderVision } from './components/vision.js'; // <-- IMPORTACIÓN REAL
-// import { renderPeople } from './components/people.js';
+import { renderVision } from './components/vision.js';
+import { renderPeople } from './components/people.js'; // <-- IMPORTACIÓN REAL
 // import { renderData } from './components/data.js';
 // import { renderIssues } from './components/issues.js';
 // import { renderProcess } from './components/process.js';
@@ -18,8 +18,7 @@ import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-// const renderVision = () => renderComponent('<div class="component-container"><h2 class="component-title">Visión</h2><p>Contenido del componente Visión (V/TO).</p></div>'); // <-- MOCK ELIMINADO
-const renderPeople = () => renderComponent('<div class="component-container"><h2 class="component-title">Personas</h2><p>Contenido del componente Personas.</p></div>');
+// const renderPeople = () => renderComponent('<div class="component-container"><h2 class="component-title">Personas</h2><p>Contenido del componente Personas.</p></div>'); // <-- MOCK ELIMINADO
 const renderData = () => renderComponent('<div class="component-container"><h2 class="component-title">Datos</h2><p>Contenido del componente Datos (Scorecard).</p></div>');
 const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>');
 const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>');
@@ -29,8 +28,8 @@ const renderTraction = () => renderComponent('<div class="component-container"><
 // --- Router ---
 const routes = {
     '#/dashboard': { render: renderDashboard, title: 'Dashboard' },
-    '#/vision': { render: renderVision, title: 'Visión' }, // <-- USA LA FUNCIÓN REAL
-    '#/people': { render: renderPeople, title: 'Personas' },
+    '#/vision': { render: renderVision, title: 'Visión' },
+    '#/people': { render: renderPeople, title: 'Personas' }, // <-- USA LA FUNCIÓN REAL
     '#/data': { render: renderData, title: 'Datos' },
     '#/issues': { render: renderIssues, title: 'Asuntos' },
     '#/process': { render: renderProcess, title: 'Procesos' },
