@@ -11,15 +11,14 @@ import { renderDashboard } from './components/dashboard.js';
 import { renderVision } from './components/vision.js';
 import { renderPeople } from './components/people.js';
 import { renderData } from './components/data.js';
-import { renderIssues } from './components/issues.js'; // <-- IMPORTACIÓN REAL
-// import { renderProcess } from './components/process.js';
+import { renderIssues } from './components/issues.js';
+import { renderProcess } from './components/process.js'; // <-- IMPORTACIÓN REAL
 // import { renderTraction } from './components/traction.js';
 import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-// const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>'); // <-- MOCK ELIMINADO
-const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>');
+// const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>'); // <-- MOCK ELIMINADO
 const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>');
 
 
@@ -29,8 +28,8 @@ const routes = {
     '#/vision': { render: renderVision, title: 'Visión' },
     '#/people': { render: renderPeople, title: 'Personas' },
     '#/data': { render: renderData, title: 'Datos' },
-    '#/issues': { render: renderIssues, title: 'Asuntos' }, // <-- USA LA FUNCIÓN REAL
-    '#/process': { render: renderProcess, title: 'Procesos' },
+    '#/issues': { render: renderIssues, title: 'Asuntos' },
+    '#/process': { render: renderProcess, title: 'Procesos' }, // <-- USA LA FUNCIÓN REAL
     '#/traction': { render: renderTraction, title: 'Tracción' },
     '#/settings': { render: renderSettings, title: 'Configuración' },
 };
