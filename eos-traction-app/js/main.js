@@ -7,37 +7,36 @@
 import { renderComponent, setPageTitle, updateActiveNavLink, loadData } from './utils.js';
 
 // Importa las funciones de renderizado de cada componente
-// import { renderDashboard } from './components/dashboard.js';
+import { renderDashboard } from './components/dashboard.js'; // <-- IMPORTACIÓN REAL
 // import { renderVision } from './components/vision.js';
 // import { renderPeople } from './components/people.js';
 // import { renderData } from './components/data.js';
 // import { renderIssues } from './components/issues.js';
 // import { renderProcess } from './components/process.js';
 // import { renderTraction } from './components/traction.js';
-import { renderSettings } from './components/settings.js'; // <-- IMPORTACIÓN REAL
+import { renderSettings } from './components/settings.js';
 
 // --- Mock Components (for now) ---
 // Reemplazaremos estos con los archivos reales a medida que los construyamos.
-const renderDashboard = () => renderComponent('<div class="component-container"><h2 class="component-title">Dashboard</h2><p>Aquí se mostrará el progreso de cada componente.</p></div>');
+// const renderDashboard = () => renderComponent('<div class="component-container"><h2 class="component-title">Dashboard</h2><p>Aquí se mostrará el progreso de cada componente.</p></div>'); // <-- MOCK ELIMINADO
 const renderVision = () => renderComponent('<div class="component-container"><h2 class="component-title">Visión</h2><p>Contenido del componente Visión (V/TO).</p></div>');
 const renderPeople = () => renderComponent('<div class="component-container"><h2 class="component-title">Personas</h2><p>Contenido del componente Personas.</p></div>');
 const renderData = () => renderComponent('<div class="component-container"><h2 class="component-title">Datos</h2><p>Contenido del componente Datos (Scorecard).</p></div>');
 const renderIssues = () => renderComponent('<div class="component-container"><h2 class="component-title">Asuntos</h2><p>Contenido del componente Asuntos (Issues List).</p></div>');
 const renderProcess = () => renderComponent('<div class="component-container"><h2 class="component-title">Procesos</h2><p>Contenido del componente Procesos.</p></div>');
 const renderTraction = () => renderComponent('<div class="component-container"><h2 class="component-title">Tracción</h2><p>Contenido del componente Tracción (Rocks).</p></div>');
-// const renderSettings = () => renderComponent('<div class="component-container"><h2 class="component-title">Configuración</h2><p>Formulario para configurar nombre y logo de la empresa.</p></div>'); // <-- MOCK ELIMINADO
 
 
 // --- Router ---
 const routes = {
-    '#/dashboard': { render: renderDashboard, title: 'Dashboard' },
+    '#/dashboard': { render: renderDashboard, title: 'Dashboard' }, // <-- USA LA FUNCIÓN REAL
     '#/vision': { render: renderVision, title: 'Visión' },
     '#/people': { render: renderPeople, title: 'Personas' },
     '#/data': { render: renderData, title: 'Datos' },
     '#/issues': { render: renderIssues, title: 'Asuntos' },
     '#/process': { render: renderProcess, title: 'Procesos' },
     '#/traction': { render: renderTraction, title: 'Tracción' },
-    '#/settings': { render: renderSettings, title: 'Configuración' }, // <-- USA LA FUNCIÓN REAL
+    '#/settings': { render: renderSettings, title: 'Configuración' },
 };
 
 function router() {
